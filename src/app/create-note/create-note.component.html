@@ -1,7 +1,9 @@
 <div class="note">
-    <form class="note__form">
-        <textarea name="" class="note__form-textarea" placeholder="Take a note..."></textarea>
-        <button class="note__form__btn-container">
+    <div class="note__backdrop" *ngIf="isFocused" (click)="onTextAreaBlur()"></div>
+    <form class="note__form" [formGroup]="noteForm">
+        <input *ngIf="isFocused" placeholder="Title" type="text" class="note__form-input" (focus)="onTextAreaFocus()" formControlName="title">
+        <textarea name="" class="note__form-textarea" placeholder="Take a note..." (focus)="onTextAreaFocus()" formControlName="note"></textarea>
+        <button class="note__form__btn-container" aria-label="Create Note" (click)="createNote()">
             <span class="note__form__btn-container-btn">+</span>
         </button>
     </form>

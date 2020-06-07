@@ -4,22 +4,39 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 3em;
+    margin: 3em 1em;
+    width: 36em;
+    &__backdrop {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 2;
+    }
     &__form {
         display: flex;
         position: relative;
         flex-direction: column;
+        width: 100%;
         padding: 1em;
         border-radius: 0.9em;
         border: 1px solid $gray;
+        z-index: 9;
         box-shadow: 0 1px 2px 0 rgba(60,64,67,.3), 0 2px 6px 2px rgba(60,64,67,.15);
         &-textarea {
             outline: none;
             resize: none;
-            width: 36em;
-            height: 8em;
+            height: 2em;
             border: none;
             font-size: 1em;
+        }
+        &-input {
+            border: none;
+            font-size: 1.1em;
+            font-weight: 500;
+            padding-bottom: 1em;
+            outline: none;
         }
         &__btn-container {
             position: absolute;
