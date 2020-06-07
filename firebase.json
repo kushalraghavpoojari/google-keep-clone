@@ -1,0 +1,19 @@
+{
+  "hosting": [
+    {
+      "target": "google-keep-clone",
+      "public": "dist/google-keep-clone",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
+    }
+  ]
+}

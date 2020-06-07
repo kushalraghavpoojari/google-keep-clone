@@ -1,0 +1,12 @@
+.container {
+    height: 100%;
+    .logos {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        &__logo {
+            max-height: 2.5em;
+            padding: 1em;
+        }
+    }
+}

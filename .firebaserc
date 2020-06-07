@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "keep-clone-9c6f6": {
+      "hosting": {
+        "google-keep-clone": [
+          "keep-clone-9c6f6"
+        ]
+      }
+    }
+  }
+}

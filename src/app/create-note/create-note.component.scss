@@ -1,0 +1,38 @@
+@import '../../styles/colors.scss';
+
+.note {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3em;
+    &__form {
+        display: flex;
+        position: relative;
+        flex-direction: column;
+        padding: 1em;
+        border-radius: 0.9em;
+        border: 1px solid $gray;
+        box-shadow: 0 1px 2px 0 rgba(60,64,67,.3), 0 2px 6px 2px rgba(60,64,67,.15);
+        &-textarea {
+            outline: none;
+            resize: none;
+            width: 36em;
+            height: 8em;
+            border: none;
+            font-size: 1em;
+        }
+        &__btn-container {
+            position: absolute;
+            bottom: -2em;
+            right: 1.5em;
+            background-color: $blue;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+           &-btn {
+              color: white;
+              font-size: 2em;
+           } 
+        }
+    }
+}
