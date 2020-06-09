@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Note } from '../shared/models/note.model';
-import { map, tap } from 'rxjs/operators';
+import { Store } from '@ngrx/store';
+import { tap } from 'rxjs/operators';
+import { addNote } from '../app.actions';
 
 @Component({
   selector: 'app-create-note',
@@ -11,7 +13,7 @@ import { map, tap } from 'rxjs/operators';
 })
 export class CreateNoteComponent implements OnInit {
   isFocused: Boolean = false;
-  constructor(private firestore: AngularFirestore) { }
+  constructor(private firestore: AngularFirestore, private store: Store) { }
 
   ngOnInit(): void {
     this.firestore
@@ -38,7 +40,8 @@ export class CreateNoteComponent implements OnInit {
 
   createNote(): void {
     const {title, note} = this.noteForm.value;
-    this.firestore.collection('notes').add({...new Note(title, note)});
+    console.log({ ...new Note(title, note) });
+    this.store.dispatch(addNote({note: {...new Note(title, note)}}));
   }
 
 }
