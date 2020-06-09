@@ -13,7 +13,7 @@ export const initialState: AppState = {
 const _appReducer = createReducer(initialState,
     on(fromActions.addNote, (state, action) => ({
         ...state,
-        notes: [...state.notes, action]
+        notes: [...state.notes, action.note]
     }))
 );
 
