@@ -2,5 +2,13 @@
     <mat-card class="note__card">
         <mat-card-title class="note__card-title">{{note.title}}</mat-card-title>
         <mat-card-content>{{note.description}}</mat-card-content>
+        <mat-card-footer class="note__card-footer">
+            <div class="note__card-footer__container">
+                <mat-icon aria-hidden="false" aria-label="More" title="More" [matMenuTriggerFor]="menu">more_vert</mat-icon>
+                <mat-menu #menu="matMenu">
+                    <button mat-menu-item>Add Label</button>
+                </mat-menu>
+            </div>
+        </mat-card-footer>
     </mat-card>
 </div>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Store, select } from '@ngrx/store';
 import { map } from 'rxjs/operators';
 import { AppState } from '../app.reducer';
@@ -19,5 +19,4 @@ export class NotesComponent implements OnInit {
   ngOnInit(): void {
     this.notes$ = this.store.pipe(select(notesSelector));
   }
-
 }
