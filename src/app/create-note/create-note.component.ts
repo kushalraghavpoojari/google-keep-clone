@@ -16,13 +16,13 @@ export class CreateNoteComponent implements OnInit {
   constructor(private firestore: AngularFirestore, private store: Store) { }
 
   ngOnInit(): void {
-    this.firestore
-      .collection('notes')
-      .snapshotChanges()
-      .pipe(
-        tap(n => console.log(n))
-      )
-      .subscribe(n => console.log(n))
+    // this.firestore
+    //   .collection('notes')
+    //   .snapshotChanges()
+    //   .pipe(
+    //     tap(n => console.log(n))
+    //   )
+    //   .subscribe(n => console.log(n))
   }
 
   noteForm = new FormGroup({

@@ -1,0 +1,6 @@
+<div *ngFor="let note of notes$ | async" class="note">
+    <mat-card class="note__card">
+        <mat-card-title class="note__card-title">{{note.title}}</mat-card-title>
+        <mat-card-content>{{note.description}}</mat-card-content>
+    </mat-card>
+</div>

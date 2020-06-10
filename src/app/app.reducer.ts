@@ -7,7 +7,19 @@ export interface AppState {
 }
 
 export const initialState: AppState = {
-    notes: []
+    notes: [{
+        created_at: new Date(),
+        description: 'test',
+        labels: [],
+        pinned: false,
+        title: 'test'
+    }, {
+        created_at: new Date(),
+        description: 'test',
+        labels: [],
+        pinned: false,
+        title: 'test'
+    }]
 };
 
 const _appReducer = createReducer(initialState,
@@ -17,6 +29,6 @@ const _appReducer = createReducer(initialState,
     }))
 );
 
-export function AppReducer(state, action) {
+export function AppReducer(state, action): AppState {
     return _appReducer(state, action);
 }
