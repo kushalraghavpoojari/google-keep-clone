@@ -1,4 +1,4 @@
-import { Label } from './label.model';
+import { Label, LabelInterface } from './label.model';
 import * as moment from 'moment/moment';
 
 export interface NoteInterface {
@@ -7,14 +7,14 @@ export interface NoteInterface {
     description: String,
     created_at: String,
     modified_at?: String,
-    labels: Label[],
+    labels: LabelInterface[],
     pinned: Boolean
 }
 
 export class Note {
     pinned: Boolean = false;
     created_at: String = moment().format('MMMM Do YYYY, h:mm:ss a');
-    labels: Label[] = [];
+    labels: LabelInterface[] = [];
     constructor(public title: String, public description: String) {
     }
 }

@@ -1,5 +1,5 @@
 export interface LabelInterface {
-    id: String,
+    id?: String,
     name: String
 }
 
