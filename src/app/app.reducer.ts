@@ -7,25 +7,17 @@ export interface AppState {
 }
 
 export const initialState: AppState = {
-    notes: [{
-        created_at: new Date(),
-        description: 'test',
-        labels: [],
-        pinned: false,
-        title: 'test'
-    }, {
-        created_at: new Date(),
-        description: 'test',
-        labels: [],
-        pinned: false,
-        title: 'test'
-    }]
+    notes: []
 };
 
 const _appReducer = createReducer(initialState,
     on(fromActions.addNote, (state, action) => ({
         ...state,
         notes: [...state.notes, action.note]
+    })),
+    on(fromActions.loadNotesSuccess, (state, action) => ({
+        ...state,
+        notes: [...action.notes]
     }))
 );
 
