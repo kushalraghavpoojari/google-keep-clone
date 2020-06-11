@@ -1,7 +1,14 @@
 <div class="notes">
-    <div [@slideInOut] *ngFor="let note of notes$ | async" class="note">
+    <div *ngFor="let note of notes" class="note">
         <mat-card class="note__card">
-            <mat-card-title class="note__card-title">{{note.title}}</mat-card-title>
+            <mat-card-title class="note__card-title-container">
+                <div class="note__card-title-container-wrapper">
+                    <div class="note__card-title-container-wrapper-title">{{note.title}}</div>
+                    <span>
+                        <mat-icon aria-hidden="false" aria-label="Pin" title="Pin" class="note__card-title-container-wrapper-pin" [ngClass]="{'note__card-title-container-wrapper-pin-pinned': note.pinned}">push_pin</mat-icon>
+                    </span>
+                </div>
+            </mat-card-title>
             <mat-card-content>
                 <div class="note__card__content">
                     <div class="note__card__content-desc">{{note.description}}</div>

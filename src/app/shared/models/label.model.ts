@@ -1,6 +1,6 @@
 export interface LabelInterface {
-    id?: String,
-    name: String
+    id?: string,
+    name: string
 }
 
 export class Label {

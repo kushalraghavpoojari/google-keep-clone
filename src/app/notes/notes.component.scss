@@ -5,20 +5,31 @@
 }
 .note {
     padding: 1.5em 1.5em;
-    cursor: pointer;
     &__card {
         min-width: 10em;
         max-width: 10em;
         min-height: 5em;
-        max-height: 15em;
         padding-bottom: 0.5em;
-        &-title {
+        &-title-container {
             font-size: 1.2em;
+            &-wrapper {
+                display: flex;
+                justify-content: space-between;
+                &-title {
+                    cursor: default;
+                }
+                &-pin {
+                    display: none;
+                }
+            }
         }
         &__content {
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            &-desc {
+                cursor: default;
+            }
             &-labels {
                 padding-top: 1.3em;
                 &-label {
@@ -29,18 +40,28 @@
             }
         }
         &-footer {
-            // display: none;
-            // &:hover {
-                display: flex;
-                flex-direction: row-reverse;
-            // }
+            display: none;
         }
     }
 }
 
-// .note:hover {
-//     .note__card-footer {
-//         display: flex;
-//         flex-direction: row-reverse;
-//     }
-// }
+.note:hover {
+    .note {
+        &__card {
+            &-title-container {
+                &-wrapper {
+                    &-pin {
+                        display: block;
+                        cursor: pointer;
+                        color: lighten($color: $gray, $amount: 10)
+                    }
+                }
+            }
+            &-footer {
+                cursor: pointer;
+                display: flex;
+                flex-direction: row-reverse;
+            }
+        }
+    }
+}
