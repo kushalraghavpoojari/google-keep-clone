@@ -22,13 +22,15 @@ import { EffectsModule } from '@ngrx/effects';
 import { AppReducer } from './app.reducer';
 import { AppEffects } from './app.effects';
 import { NotesComponent } from './notes/notes.component';
+import { NoteComponent } from './notes/note/note.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     CreateNoteComponent,
-    NotesComponent
+    NotesComponent,
+    NoteComponent
   ],
   imports: [
     MatToolbarModule,

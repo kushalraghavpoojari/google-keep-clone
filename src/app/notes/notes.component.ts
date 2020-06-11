@@ -4,7 +4,6 @@ import { AppState } from '../app.reducer';
 import { Observable, Subscription } from 'rxjs';
 import { NoteInterface } from '../shared/models/note.model';
 import { notesSelector } from '../app.selector';
-import { deleteNote, updatePin } from '../app.actions';
 
 @Component({
   selector: 'app-notes',
@@ -22,17 +21,6 @@ export class NotesComponent implements OnInit, OnDestroy {
       this.notes.pinned = notes.filter((note: NoteInterface) => note.pinned );
       this.notes.other = notes.filter((note: NoteInterface) => !note.pinned );
     });
-  }
-
-  onPinClicked(id: string, pinned: boolean) {
-    this.store.dispatch(updatePin({
-      id,
-      pinned: !pinned
-    }));
-  }
-
-  deleteNote(id: string) {
-   this.store.dispatch(deleteNote({id}))
   }
 
   ngOnDestroy(): void {

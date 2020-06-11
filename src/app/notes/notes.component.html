@@ -3,33 +3,7 @@
         <p class="label">Pinned</p>
         <div class="notes">
             <div *ngFor="let note of notes.pinned">
-                <div class="note">
-                    <mat-card class="note__card">
-                        <mat-card-title class="note__card-title-container">
-                            <div class="note__card-title-container-wrapper">
-                                <div class="note__card-title-container-wrapper-title">{{note.title}}</div>
-                                <mat-icon (click)="onPinClicked(note.id, note.pinned)" aria-hidden="false" aria-label="Pin" title="Pin" class="note__card-title-container-wrapper-pin" [ngClass]="{'note__card-title-container-wrapper-pin-pinned': note.pinned}">push_pin</mat-icon>
-                            </div>
-                        </mat-card-title>
-                        <mat-card-content>
-                            <div class="note__card__content">
-                                <div class="note__card__content-desc">{{note.description}}</div>
-                                <div class="note__card__content-labels" *ngFor="let label of note.labels">
-                                    <span class="note__card__content-labels-label">{{label.name}}</span>
-                                </div>
-                            </div>
-                        </mat-card-content>
-                        <mat-card-actions class="note__card-footer">
-                            <div class="note__card-footer__container">
-                                <mat-icon aria-hidden="false" aria-label="More" title="More" [matMenuTriggerFor]="menu">more_vert</mat-icon>
-                                <mat-menu #menu="matMenu">
-                                    <button mat-menu-item (click)="deleteNote(note.id)">Delete Note</button>
-                                    <button mat-menu-item>Add Label</button>
-                                </mat-menu>
-                            </div>
-                        </mat-card-actions>
-                    </mat-card>
-                </div>
+                <app-note [note]="note"></app-note>
             </div>
         </div>
     </div>
@@ -37,33 +11,7 @@
         <p class="label" *ngIf="notes.pinned.length">Other</p>
         <div class="notes">
             <div *ngFor="let note of notes.other">
-                <div class="note">
-                    <mat-card class="note__card">
-                        <mat-card-title class="note__card-title-container">
-                            <div class="note__card-title-container-wrapper">
-                                <div class="note__card-title-container-wrapper-title">{{note.title}}</div>
-                                <mat-icon (click)="onPinClicked(note.id, note.pinned)" aria-hidden="false" aria-label="Pin" title="Pin" class="note__card-title-container-wrapper-pin" [ngClass]="{'note__card-title-container-wrapper-pin-pinned': note.pinned}">push_pin</mat-icon>
-                            </div>
-                        </mat-card-title>
-                        <mat-card-content>
-                            <div class="note__card__content">
-                                <div class="note__card__content-desc">{{note.description}}</div>
-                                <div class="note__card__content-labels" *ngFor="let label of note.labels">
-                                    <span class="note__card__content-labels-label">{{label.name}}</span>
-                                </div>
-                            </div>
-                        </mat-card-content>
-                        <mat-card-actions class="note__card-footer">
-                            <div class="note__card-footer__container">
-                                <mat-icon aria-hidden="false" aria-label="More" title="More" [matMenuTriggerFor]="menu">more_vert</mat-icon>
-                                <mat-menu #menu="matMenu">
-                                    <button mat-menu-item (click)="deleteNote(note.id)">Delete Note</button>
-                                    <button mat-menu-item>Add Label</button>
-                                </mat-menu>
-                            </div>
-                        </mat-card-actions>
-                    </mat-card>
-                </div>
+                <app-note [note]="note"></app-note>
             </div>
         </div>
     </div>
