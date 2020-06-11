@@ -1,8 +1,8 @@
 import { createEffect, Actions, ofType } from '@ngrx/effects';
-import { tap, mergeMap, map, take } from 'rxjs/operators';
+import { tap, mergeMap, map } from 'rxjs/operators';
 import { from } from 'rxjs';
 import { Injectable } from '@angular/core';
-import { addNote, loadNotes, loadNotesSuccess, deleteNote } from './app.actions';
+import { addNote, loadNotes, loadNotesSuccess, updatePin, deleteNote } from './app.actions';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { NoteInterface } from './shared/models/note.model';
 
@@ -31,6 +31,14 @@ export class AppEffects {
             )
         )
     ));
+
+    updatePin$ = createEffect(() => this.action$.pipe(
+        ofType(updatePin),
+        tap(action => this.firestore.collection<NoteInterface>('notes').doc(action.id).update({
+            id: action.id,
+            pinned: action.pinned
+        }))
+    ), { dispatch: false });
 
     deleteNote$ = createEffect(() => this.action$.pipe(
         ofType(deleteNote),
