@@ -35,6 +35,7 @@ export class NoteComponent implements OnInit {
     if(!element.className.includes('mat-icon')) {
       const dialogRef = this.dialog.open(EditNoteComponent, {
         width: '35em',
+        height: '15em',
         data: this.note
       });
       dialogRef.afterClosed().subscribe(() => this.hideNote = !this.hideNote);

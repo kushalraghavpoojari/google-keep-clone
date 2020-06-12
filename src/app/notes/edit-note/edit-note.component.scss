@@ -1,7 +1,11 @@
 @import '../../../styles/colors.scss';
 
 .note {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
     &__form {
+        flex: 1;
         display: flex;
         position: relative;
         flex-direction: column;
@@ -57,6 +61,7 @@
             min-height: 2em;
             border: none;
             font-size: 1em;
+            flex: 1;
         }
     }
     &__buttons {
