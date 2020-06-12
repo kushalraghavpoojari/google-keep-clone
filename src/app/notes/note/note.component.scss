@@ -79,6 +79,10 @@
     }
 }
 
+.hide {
+    opacity: 0;
+}
+
 .note:hover {
     .note {
         &__card {

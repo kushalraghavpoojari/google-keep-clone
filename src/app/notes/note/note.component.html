@@ -1,4 +1,4 @@
-<div class="note">
+<div class="note" [ngClass]="{'hide': hideNote}">
     <mat-card class="note__card" (click)="onNoteClicked($event)">
         <mat-card-title class="note__card-title-container">
             <div class="note__card-title-container-wrapper">

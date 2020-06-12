@@ -1,7 +1,6 @@
 @import '../../../styles/colors.scss';
 
 .note {
-    width: 35em;
     &__form {
         display: flex;
         position: relative;
@@ -16,6 +15,7 @@
                 font-weight: 500;
                 padding-bottom: 1em;
                 outline: none;
+                flex: 1;
             }
             &-icon {
                 display: block;
