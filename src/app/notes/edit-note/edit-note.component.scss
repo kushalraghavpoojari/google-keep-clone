@@ -64,6 +64,11 @@
             flex: 1;
         }
     }
+    &__edited {
+        display: flex;
+        flex-direction: row-reverse;
+        font-size: 0.7em;
+    }
     &__buttons {
         display: flex;
         flex-direction: row-reverse;

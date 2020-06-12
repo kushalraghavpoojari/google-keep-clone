@@ -8,6 +8,9 @@
         </div>
         <textarea class="note__form-textarea" placeholder="Take a note..."  formControlName="note"></textarea>
     </form>
+    <div class="note__edited" *ngIf="note.modified_at">
+        <span>Edited {{note.modified_at}}</span>
+    </div>
     <div mat-dialog-actions class="note__buttons">
         <button mat-button (click)="onSave()">Save</button>
     </div>

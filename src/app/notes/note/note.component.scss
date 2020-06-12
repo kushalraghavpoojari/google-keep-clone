@@ -54,6 +54,9 @@
                 }
             }
         }
+        &__content-container {
+            margin-bottom: 0;
+        }
         &__content {
             display: flex;
             flex-direction: column;
@@ -69,6 +72,10 @@
                     border-radius: 0.3em;
                 }
             }
+        }
+        &__empty-content {
+            font-size: 1.3em;
+            color: $gray;
         }
         &-footer {
             cursor: pointer;
