@@ -54,8 +54,33 @@
                         display: block;
                         cursor: pointer;
                         color: lighten($color: $gray, $amount: 10);
+                        position: relative;
+                        &:hover::after {
+                            content: 'Pin Note';
+                            font-size: 0.5em;
+                            position: absolute;
+                            padding: 0.3em;
+                            border-radius: 0.3em;
+                            background-color: darken($color: $gray, $amount: 45);
+                            color: $white;
+                            top: 2.5em;
+                            left: -1.5em;
+                            width: 5em;
+                        }
                         &-pinned {
                             color: darken($color: $gray, $amount: 25);
+                            &:hover::after {
+                                content: 'Unpin Note';
+                                font-size: 0.5em;
+                                position: absolute;
+                                padding: 0.3em;
+                                border-radius: 0.3em;
+                                background-color: darken($color: $gray, $amount: 45);
+                                color: $white;
+                                top: 2.5em;
+                                left: -1.5em;
+                                width: 5em;
+                            }
                         }
                     }
                 }

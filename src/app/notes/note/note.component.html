@@ -3,7 +3,9 @@
         <mat-card-title class="note__card-title-container">
             <div class="note__card-title-container-wrapper">
                 <div class="note__card-title-container-wrapper-title">{{note.title}}</div>
-                <mat-icon (click)="onPinClicked(note.id, note.pinned)" aria-hidden="false" aria-label="Pin" title="Pin" class="note__card-title-container-wrapper-pin" [ngClass]="{'note__card-title-container-wrapper-pin-pinned': note.pinned}">push_pin</mat-icon>
+                <span class="note__card-title-container-wrapper-pin" [ngClass]="{'note__card-title-container-wrapper-pin-pinned': note.pinned}">
+                    <mat-icon (click)="onPinClicked(note.id, note.pinned)" aria-hidden="false" aria-label="Pin">push_pin</mat-icon>
+                </span>
             </div>
         </mat-card-title>
         <mat-card-content>
