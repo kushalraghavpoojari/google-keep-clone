@@ -1,12 +1,15 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatButtonModule } from '@angular/material/button';
+import { MatDialogModule } from '@angular/material/dialog';
 
 import { AngularFireModule } from '@angular/fire'
 import { AngularFirestoreModule } from '@angular/fire/firestore';
@@ -23,6 +26,7 @@ import { AppReducer } from './app.reducer';
 import { AppEffects } from './app.effects';
 import { NotesComponent } from './notes/notes.component';
 import { NoteComponent } from './notes/note/note.component';
+import { EditNoteComponent } from './notes/edit-note/edit-note.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +34,8 @@ import { NoteComponent } from './notes/note/note.component';
     HeaderComponent,
     CreateNoteComponent,
     NotesComponent,
-    NoteComponent
+    NoteComponent,
+    EditNoteComponent
   ],
   imports: [
     MatToolbarModule,
@@ -38,7 +43,10 @@ import { NoteComponent } from './notes/note/note.component';
     MatIconModule,
     MatCardModule,
     MatMenuModule,
+    MatButtonModule,
+    MatDialogModule,
     ReactiveFormsModule,
+    FormsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     BrowserModule,
@@ -49,6 +57,7 @@ import { NoteComponent } from './notes/note/note.component';
     EffectsModule.forRoot([AppEffects])
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [EditNoteComponent]
 })
 export class AppModule { }

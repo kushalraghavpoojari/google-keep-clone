@@ -1,0 +1,14 @@
+<div class="note">
+    <form class="note__form" [formGroup]="noteForm">
+        <div class="note__form__heading">
+            <input placeholder="Title" type="text" class="note__form__heading-input" formControlName="title">
+            <span class="note__form__heading-icon" [ngClass]="{'note__form__heading-icon-pinned': note.pinned}" (click)="onPinClicked()">
+                <mat-icon aria-hidden="false" aria-label="Pin">push_pin</mat-icon>
+            </span>
+        </div>
+        <textarea name="" class="note__form-textarea" placeholder="Take a note..."  formControlName="note"></textarea>
+    </form>
+    <div mat-dialog-actions class="note__buttons">
+        <button mat-button (click)="onSave()">Save</button>
+    </div>
+</div>

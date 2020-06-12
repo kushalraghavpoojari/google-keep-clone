@@ -1,5 +1,5 @@
 <div class="note">
-    <mat-card class="note__card">
+    <mat-card class="note__card" (click)="onNoteClicked($event)">
         <mat-card-title class="note__card-title-container">
             <div class="note__card-title-container-wrapper">
                 <div class="note__card-title-container-wrapper-title">{{note.title}}</div>

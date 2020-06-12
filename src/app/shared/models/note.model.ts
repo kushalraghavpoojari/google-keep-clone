@@ -8,11 +8,11 @@ export interface NoteInterface {
     created_at: string,
     modified_at?: string,
     labels: LabelInterface[],
-    pinned: Boolean
+    pinned: boolean
 }
 
 export class Note {
-    pinned: Boolean = false;
+    pinned: boolean = false;
     created_at: string = moment().format('MMMM Do YYYY, h:mm:ss a');
     labels: LabelInterface[] = [];
     constructor(public title: string, public description: string) {
