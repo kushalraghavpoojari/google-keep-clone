@@ -1,10 +1,10 @@
 @import '../../../styles/colors.scss';
 
 .note {
-    padding-bottom: 1.5em;
-    padding-top: 0.5em;
-    padding-left: 0.5em;
-    padding-right: 0.5em;
+    margin-bottom: 1.5em;
+    margin-top: 0.5em;
+    margin-left: 0.5em;
+    margin-right: 0.5em;
     &__card {
         min-width: 10em;
         max-width: 10em;
@@ -19,7 +19,38 @@
                     cursor: default;
                 }
                 &-pin {
-                    display: none;
+                    display: block;
+                    opacity: 0;
+                    cursor: pointer;
+                    color: lighten($color: $gray, $amount: 10);
+                    position: relative;
+                    &:hover::after {
+                        content: 'Pin Note';
+                        font-size: 0.5em;
+                        position: absolute;
+                        padding: 0.3em;
+                        border-radius: 0.3em;
+                        background-color: darken($color: $gray, $amount: 45);
+                        color: $white;
+                        top: 2.5em;
+                        left: -1.5em;
+                        width: 5em;
+                    }
+                    &-pinned {
+                        color: darken($color: $gray, $amount: 25);
+                        &:hover::after {
+                            content: 'Unpin Note';
+                            font-size: 0.5em;
+                            position: absolute;
+                            padding: 0.3em;
+                            border-radius: 0.3em;
+                            background-color: darken($color: $gray, $amount: 45);
+                            color: $white;
+                            top: 2.5em;
+                            left: -1.5em;
+                            width: 5em;
+                        }
+                    }
                 }
             }
         }
@@ -40,7 +71,10 @@
             }
         }
         &-footer {
-            display: none;
+            cursor: pointer;
+            display: flex;
+            flex-direction: row-reverse;
+            opacity: 0;
         }
     }
 }
@@ -51,44 +85,12 @@
             &-title-container {
                 &-wrapper {
                     &-pin {
-                        display: block;
-                        cursor: pointer;
-                        color: lighten($color: $gray, $amount: 10);
-                        position: relative;
-                        &:hover::after {
-                            content: 'Pin Note';
-                            font-size: 0.5em;
-                            position: absolute;
-                            padding: 0.3em;
-                            border-radius: 0.3em;
-                            background-color: darken($color: $gray, $amount: 45);
-                            color: $white;
-                            top: 2.5em;
-                            left: -1.5em;
-                            width: 5em;
-                        }
-                        &-pinned {
-                            color: darken($color: $gray, $amount: 25);
-                            &:hover::after {
-                                content: 'Unpin Note';
-                                font-size: 0.5em;
-                                position: absolute;
-                                padding: 0.3em;
-                                border-radius: 0.3em;
-                                background-color: darken($color: $gray, $amount: 45);
-                                color: $white;
-                                top: 2.5em;
-                                left: -1.5em;
-                                width: 5em;
-                            }
-                        }
+                        opacity: 1;
                     }
                 }
             }
             &-footer {
-                cursor: pointer;
-                display: flex;
-                flex-direction: row-reverse;
+                opacity: 1;
             }
         }
     }
