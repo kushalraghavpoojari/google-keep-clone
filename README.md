@@ -1,6 +1,8 @@
 # GoogleKeepClone
 
-Status - `In Progress`
+Status - `Deployed` [New Feature work in progress]
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/0b27742d-9f8e-41c7-889d-1239eb04bdd9/deploy-status)](https://app.netlify.com/sites/googlekeep-angular/deploys)
 
 ### Stack
 
