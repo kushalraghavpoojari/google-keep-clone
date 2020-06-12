@@ -55,7 +55,7 @@
                         cursor: pointer;
                         color: lighten($color: $gray, $amount: 10);
                         &-pinned {
-                            color: darken($color: $gray, $amount: 10);
+                            color: darken($color: $gray, $amount: 25);
                         }
                     }
                 }

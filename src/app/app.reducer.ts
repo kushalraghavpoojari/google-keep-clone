@@ -12,7 +12,6 @@ export const initialState: AppState = {
 
 const _appReducer = createReducer(initialState,
     on(fromActions.addNote, (state, action) => {
-        console.log(state, action)
         return {
             ...state,
             notes: [...state.notes, action.note]
