@@ -30,9 +30,9 @@ export class NoteComponent implements OnInit {
   }
 
   onNoteClicked(event: MouseEvent) {
-    this.hideNote = !this.hideNote;
     const element = event.target as HTMLElement;
     if(!element.className.includes('mat-icon')) {
+      this.hideNote = !this.hideNote;
       const dialogRef = this.dialog.open(EditNoteComponent, {
         width: '35em',
         height: '15em',
