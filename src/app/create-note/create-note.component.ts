@@ -33,8 +33,10 @@ export class CreateNoteComponent implements OnInit {
 
   createNote(): void {
     const {title, note} = this.noteForm.value;
-    this.store.dispatch(addNote({note: {...new Note(title, note)}}));
-    this.noteForm.reset();
+    if (title || note) {
+      this.store.dispatch(addNote({note: {...new Note(title, note)}}));
+      this.noteForm.reset();
+    }
   }
 
 }
