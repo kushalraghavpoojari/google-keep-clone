@@ -12,6 +12,8 @@
    font-size: 0.7em;
 }
 .notes {
-    display: flex;
-    flex-wrap: wrap;
+    @media (min-width: 450px) {
+        display: flex;
+        flex-wrap: wrap;
+    }
 }

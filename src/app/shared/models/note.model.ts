@@ -1,4 +1,4 @@
-import { Label, LabelInterface } from './label.model';
+import { LabelInterface } from './label.model';
 import * as moment from 'moment/moment';
 
 export interface NoteInterface {
