@@ -1,10 +1,11 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { NoteInterface, Note } from 'src/app/shared/models/note.model';
-import { deleteNote, updatePin, addNote, copyNote } from '../../app.actions';
+import { deleteNote, updatePin, addNote, copyNote, updateNote } from '../../app.actions';
 import { Store } from '@ngrx/store';
 import { MatDialog } from '@angular/material/dialog';
 import { EditNoteComponent } from '../edit-note/edit-note.component';
 import { AddLabelComponent } from '../add-label/add-label.component';
+import { LabelInterface } from 'src/app/shared/models/label.model';
 
 @Component({
   selector: 'app-note',
@@ -19,7 +20,6 @@ export class NoteComponent implements OnInit {
   
   ngOnInit(): void {
     this.isEmptyNote = !!(this.note.description.length || this.note.title.length);
-    console.log(this.note);
   }
 
   onPinClicked(id: string, pinned: boolean) {
@@ -38,6 +38,13 @@ export class NoteComponent implements OnInit {
     this.dialog.open(AddLabelComponent, {
       data: this.note
     });
+  }
+
+  removeLabel(event, label: LabelInterface) {
+    event.stopPropagation();
+    const note = {...this.note};
+    note.labels = note.labels.filter(lbl => lbl.id !== label.id);
+    this.store.dispatch(updateNote({ note }));
   }
 
   makeCopy(): void {

@@ -12,7 +12,10 @@
             <div class="note__card__content" *ngIf="isEmptyNote">
                 <div class="note__card__content-desc">{{note.description}}</div>
                 <div class="note__card__content-labels">
-                    <span class="note__card__content-labels-label" *ngFor="let label of note.labels">{{label.name}}</span>
+                    <span class="note__card__content-labels-label" *ngFor="let label of note.labels">
+                        <span>{{label.name}}</span>
+                        <span (click)="removeLabel($event, label)">x</span>
+                    </span>
                 </div>
             </div>
             <div class="note__card__empty-content" *ngIf="!note.description.length && !note.title.length">

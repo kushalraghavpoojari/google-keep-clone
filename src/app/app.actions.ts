@@ -12,4 +12,4 @@ export const copyNote = createAction('[Note Options] Copy Note', props<{ note: N
 export const deleteNote = createAction('[Note] Delete Note', props<{ id: string }>());
 export const updatePin = createAction('[Note] Update Pin', props<{ note: Partial<NoteInterface> }>());
 export const updateNote = createAction('[Edit Note] Update Note', props<{ note: Partial<NoteInterface> }>());
-export const addLabel = createAction('[Note] Add Label', props<{ label: LabelInterface }>());
+export const addLabel = createAction('[Note] Add Label', props<{ label: LabelInterface, note: NoteInterface }>());

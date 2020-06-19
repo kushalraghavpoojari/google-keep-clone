@@ -69,10 +69,20 @@
             &-labels {
                 padding-top: 1.3em;
                 &-label {
+                    cursor: pointer;
                     margin-right: 0.4em;
                     padding: 0.2em;
                     border: 1px solid $black;
                     border-radius: 0.3em;
+                    > span:last-child {
+                        display: none;
+                        padding-left: 0.3em;
+                    }
+                }
+                &-label:hover {
+                    > span:last-child {
+                        display: inline-block;
+                    } 
                 }
             }
         }

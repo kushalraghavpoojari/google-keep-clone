@@ -1,6 +1,6 @@
 import { createEffect, Actions, ofType } from '@ngrx/effects';
 import { tap, mergeMap, map } from 'rxjs/operators';
-import { from } from 'rxjs';
+import { from, pipe } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { addNote, loadNotes, loadNotesSuccess, updatePin, deleteNote, updateNote, copyNote, addLabel, loadLabels, loadLabelsSuccess } from './app.actions';
 import { AngularFirestore } from '@angular/fire/firestore';
@@ -62,10 +62,26 @@ export class AppEffects {
         tap(action => this.firestore.collection('notes').doc(action.id).delete())
     ), { dispatch: false });
 
-    // addLabelToNote$ = createEffect(() => this.action$.pipe(
-    //     ofType(addLabelToNote),
-    //     tap(action => from(this.firestore.collection<LabelInterface>('labels').add()))
-    // ), { dispatch: false });
+    addLabel$ = createEffect(() => this.action$.pipe(
+        ofType(addLabel),
+        mergeMap((action) => from(this.firestore
+            .collection<LabelInterface>('labels')
+            .add(action.label))
+            .pipe(
+                map(addLabelRes => {
+                    return {
+                        id: addLabelRes.id,
+                        name: action.label.name
+                    };
+                }),
+                map((newLabel: LabelInterface) => {
+                    const note = {...action.note};
+                    note.labels = [...note.labels, newLabel];
+                    return updateNote({note});
+                })
+            )
+        )
+    ));
 
     constructor(private action$: Actions, private firestore: AngularFirestore) {}
 }

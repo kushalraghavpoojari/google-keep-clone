@@ -1,0 +1,17 @@
+.label {
+    &__buttons {
+        padding-top: 1em;
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: space-between;
+    }
+}
+.actions {
+    cursor: pointer;
+    &__icon {
+        padding-right: 0.2em;
+    }
+    &__text {
+        font-size: 0.8em;
+    }
+}
