@@ -1,13 +1,16 @@
 import * as fromActions from './app.actions';
 import { createReducer, on } from '@ngrx/store';
 import { Note, NoteInterface } from './shared/models/note.model';
+import { LabelInterface } from './shared/models/label.model';
 
 export interface AppState {
-    notes: Note[]
+    notes: NoteInterface[],
+    labels: LabelInterface[]
 }
 
 export const initialState: AppState = {
-    notes: []
+    notes: [],
+    labels: []
 };
 
 const _appReducer = createReducer(initialState,
@@ -20,6 +23,10 @@ const _appReducer = createReducer(initialState,
     on(fromActions.loadNotesSuccess, (state, action) => ({
         ...state,
         notes: [...action.notes]
+    })),
+    on(fromActions.loadLabelsSuccess, (state, action) => ({
+        ...state,
+        labels: [...action.labels]
     })),
     on(fromActions.deleteNote, (state, action) => {
         const newNotesArr = state.notes.filter((note:NoteInterface) => note.id !== action.id);

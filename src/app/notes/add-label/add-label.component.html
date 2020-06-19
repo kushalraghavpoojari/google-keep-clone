@@ -1,0 +1,10 @@
+<div class="label">
+    <div class="label__heading">Label note</div>
+    <mat-form-field appearance="standard">
+        <input matInput type="text" [(ngModel)]="value" placeholder="Enter label name">
+        <mat-icon matSuffix aria-label="Search">search</mat-icon>
+    </mat-form-field>
+    <div class="label__labels" *ngFor="let label of labels | async">
+        <mat-checkbox (click)="onChecked(label)" [checked]="isChecked(label)">{{label.name}}</mat-checkbox>
+    </div>
+</div>

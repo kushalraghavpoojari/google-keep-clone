@@ -4,6 +4,7 @@ import { deleteNote, updatePin, addNote, copyNote } from '../../app.actions';
 import { Store } from '@ngrx/store';
 import { MatDialog } from '@angular/material/dialog';
 import { EditNoteComponent } from '../edit-note/edit-note.component';
+import { AddLabelComponent } from '../add-label/add-label.component';
 
 @Component({
   selector: 'app-note',
@@ -18,6 +19,7 @@ export class NoteComponent implements OnInit {
   
   ngOnInit(): void {
     this.isEmptyNote = !!(this.note.description.length || this.note.title.length);
+    console.log(this.note);
   }
 
   onPinClicked(id: string, pinned: boolean) {
@@ -30,6 +32,12 @@ export class NoteComponent implements OnInit {
 
   deleteNote(): void {
    this.store.dispatch(deleteNote({ id: this.note.id }))
+  }
+
+  addLabel(): void {
+    this.dialog.open(AddLabelComponent, {
+      data: this.note
+    });
   }
 
   makeCopy(): void {

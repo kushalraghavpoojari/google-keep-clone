@@ -4,6 +4,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
@@ -27,6 +28,7 @@ import { AppEffects } from './app.effects';
 import { NotesComponent } from './notes/notes.component';
 import { NoteComponent } from './notes/note/note.component';
 import { EditNoteComponent } from './notes/edit-note/edit-note.component';
+import { AddLabelComponent } from './notes/add-label/add-label.component';
 
 @NgModule({
   declarations: [
@@ -35,10 +37,12 @@ import { EditNoteComponent } from './notes/edit-note/edit-note.component';
     CreateNoteComponent,
     NotesComponent,
     NoteComponent,
-    EditNoteComponent
+    EditNoteComponent,
+    AddLabelComponent
   ],
   imports: [
     MatToolbarModule,
+    MatCheckboxModule,
     MatInputModule,
     MatIconModule,
     MatCardModule,

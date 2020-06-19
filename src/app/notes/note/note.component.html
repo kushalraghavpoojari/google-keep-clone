@@ -11,8 +11,8 @@
         <mat-card-content [ngClass]="{'note__card__content-container': !isEmptyNote}">
             <div class="note__card__content" *ngIf="isEmptyNote">
                 <div class="note__card__content-desc">{{note.description}}</div>
-                <div class="note__card__content-labels" *ngFor="let label of note.labels">
-                    <span class="note__card__content-labels-label">{{label.name}}</span>
+                <div class="note__card__content-labels">
+                    <span class="note__card__content-labels-label" *ngFor="let label of note.labels">{{label.name}}</span>
                 </div>
             </div>
             <div class="note__card__empty-content" *ngIf="!note.description.length && !note.title.length">
@@ -24,7 +24,7 @@
                 <mat-icon aria-hidden="false" aria-label="More" title="More" [matMenuTriggerFor]="menu">more_vert</mat-icon>
                 <mat-menu #menu="matMenu">
                     <button mat-menu-item (click)="deleteNote()">Delete Note</button>
-                    <button mat-menu-item>Add Label</button>
+                    <button mat-menu-item (click)="addLabel()">Add Label</button>
                     <button mat-menu-item (click)="makeCopy()">Make a copy</button>
                 </mat-menu>
             </div>
