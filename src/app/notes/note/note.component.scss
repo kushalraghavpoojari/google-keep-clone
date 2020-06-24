@@ -78,7 +78,7 @@
                         padding-left: 0.2em;
                     }
                 }
-                &-label:hover {
+                &-label:hover, &-label:focus {
                     > span:last-child {
                         cursor: pointer;
                         display: inline-block;
@@ -103,7 +103,7 @@
     opacity: 0;
 }
 
-.note:hover {
+.note:hover,.note:focus, .note:focus-within {
     .note {
         &__card {
             &-title-container {
