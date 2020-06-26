@@ -4,7 +4,7 @@
             <div class="note__card-title-container-wrapper">
                 <div class="note__card-title-container-wrapper-title">{{note.title}}</div>
                 <span class="note__card-title-container-wrapper-pin mat-icon" tabindex="0" [ngClass]="{'note__card-title-container-wrapper-pin-pinned': note.pinned}" (keyup.enter)="onPinClicked(note.id, note.pinned)">
-                    <mat-icon (click)="onPinClicked(note.id, note.pinned)" aria-hidden="false" aria-label="Pin">push_pin</mat-icon>
+                    <mat-icon (click)="onPinClicked(note.id, note.pinned)" aria-hidden="false" [attr.aria-label]="note.pinned ? 'Unpin': 'Pin'">push_pin</mat-icon>
                 </span>
             </div>
         </mat-card-title>
@@ -13,8 +13,8 @@
                 <div class="note__card__content-desc">{{note.description}}</div>
                 <div class="note__card__content-labels">
                     <span class="note__card__content-labels-label" tabindex="0" *ngFor="let label of note.labels">
-                        <span>{{label.name}}</span>
-                        <span (click)="removeLabel($event, label)" tabindex="0" role="button">x</span>
+                        <span [attr.aria-label]="label.name">{{label.name}}</span>
+                        <span (click)="removeLabel($event, label)" tabindex="0" role="button" aria-label="Remove tag">x</span>
                     </span>
                 </div>
             </div>
@@ -24,7 +24,6 @@
         </mat-card-content>
         <mat-card-actions class="note__card-footer">
             <div class="note__card-footer__container">
-                
                 <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="More options">
                     <mat-icon>more_vert</mat-icon>
                 </button>

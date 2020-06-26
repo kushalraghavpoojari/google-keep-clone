@@ -40,7 +40,7 @@
                     }
                     &-pinned {
                         color: darken($color: $gray, $amount: 25);
-                        &:hover::after {
+                        &:hover::after, &:focus::after {
                             content: 'Unpin Note';
                             font-size: 0.5em;
                             position: absolute;
